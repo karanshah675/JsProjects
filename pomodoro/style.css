@@ -36,14 +36,33 @@ body {
   /* margin-top: -30px; */
   border-radius: 50px;
   display: flex;
+  /* justify-content:gap-between; */
+  /* justify-content: space-around; */
   justify-content: center;
   align-items: center;
   border: 4px solid grey;
   overflow: hidden;
   cursor: pointer;
   padding: 10px;
-  /* z-index: 9999; */
 
+  flex-direction: column;
+  /* z-index: 9999; */
+}
+.session-banner {
+  color: black;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -30px;
+  transform: scale(1.3);
+  background-color: aqua;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+.hide {
+  display: none;
 }
 .time {
   cursor: pointer;
@@ -51,8 +70,9 @@ body {
   font-size: 43px;
   color: aqua;
   display: flex;
-  gap: 10px;
+  /* flex: 1; */
   /* font-weight: bold; */
+  margin-bottom: 30px;
 }
 .timer-setup {
   flex-direction: column;
@@ -63,9 +83,10 @@ body {
   padding: 4px;
   border: 4px solid grey;
   visibility: hidden;
+  gap: 10px;
+  transition: 0.2s all ease;
 }
-.visiblee{
-  
+.visiblee {
   visibility: visible;
 }
 .timer-setup input {
@@ -76,12 +97,13 @@ body {
   cursor: pointer;
   width: 100%;
   display: flex;
-  gap: 10px;
+  /* gap: 20px; */
   justify-content: space-between;
   font-size: 20px;
+  /* padding-top: 10px; */
 }
 .break {
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
 }
 .edit:hover {
   background-color: aqua !important ;
@@ -99,7 +121,7 @@ body {
   height: 30px;
   background-color: rgb(255, 88, 28);
   position: absolute;
-  top: -27px ;
+  top: -27px;
   right: 60px;
   /* border-bottom: 10px solid grey; */
   border-radius: 10px 10px 0 0;
@@ -109,7 +131,7 @@ body {
   /* animation-play-state: paused; */
   /* z-index: ; */
 }
-.change-page{
+.change-page {
   position: absolute;
   animation-iteration-count: 1;
   transition: 0.2s all ease-in;
@@ -137,13 +159,15 @@ body {
   z-index: 1;
   border-radius: 50%;
 } */
-.animate{
+.animate {
   animation: myAnimation 1s;
-  
 }
 .time-edit {
   display: flex;
   gap: 5px;
+  position: absolute;
+  bottom: 0;
+  transition: 0.2s all ease-in;
 }
 
 .time-edit-btn {
@@ -152,12 +176,19 @@ body {
   padding: 2px 15px;
   border: 0;
   font-size: 20px;
-
-  margin-bottom: -40px;
+  /* margin-bottom: -40px; */
+  bottom: 0;
   background-color: #000;
   color: #fff;
   transition: 0.2s all ease;
+  /* animation: buttonClick 1s infinite; */
+  /* transition: 0.2s all ease; */
 }
+.time-edit-btn:active {
+  transform: scale(0.95);
+  background-color: rgb(12, 212, 212) !important;
+}
+
 .box::before {
   content: " ";
   position: absolute;
@@ -182,21 +213,25 @@ body {
   background-color: gray;
   border-radius: 5px 5px 0 0;
 }
-.blink{
-animation: blinkAnimation 2s;
-transition: 0.2s all ease;
-
+.blink {
+  animation: blinkAnimation 2s;
+  transition: 0.2s all ease;
 }
-@keyframes blinkAnimation{
-   0% {
-      opacity: 0;
-   }
-   50% {
-    opacity: 1;
-   }
-   100% {
+.clicked {
+  transition: 0.2s all ease;
+  background-color: aqua !important;
+  color: black !important;
+}
+@keyframes blinkAnimation {
+  0% {
     opacity: 0;
-   }
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes myAnimation {
   0% {
@@ -207,9 +242,8 @@ transition: 0.2s all ease;
     top: 0px;
     z-index: -1;
   }
-  100%{
+  100% {
     z-index: -1;
     top: -27px;
-
   }
 }
